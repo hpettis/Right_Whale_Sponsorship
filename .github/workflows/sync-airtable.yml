@@ -1,0 +1,34 @@
+name: Sync Airtable data
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # runs every hour, on the hour (UTC)
+  workflow_dispatch: {}    # adds a "Run workflow" button under the Actions tab for manual runs
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run Airtable sync script
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+        run: node scripts/sync-airtable.mjs
+
+      - name: Commit updated data files (if anything changed)
+        run: |
+          git config user.name "airtable-sync-bot"
+          git config user.email "actions@github.com"
+          git add data/whales.json data/sightings.json data/updates.json
+          git diff --cached --quiet || git commit -m "Sync whale data from Airtable"
+          git push
