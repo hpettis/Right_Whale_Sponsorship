@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Right Whale Sponsorship Updates</title>
+<style>
+  /* Helvetica Neue LT Std is a licensed typeface (Linotype/Monotype) - these @font-face rules
+     point at local font files that need to be supplied and hosted alongside this page. Until
+     those files are added, the fallback stacks below (Arial Narrow / Arial Black / Helvetica)
+     approximate each weight so the page still renders sensibly. */
+  @font-face {
+    font-family: "HelveticaNeueLTStd-MdCn";
+    src: url("fonts/HelveticaNeueLTStd-MdCn.woff2") format("woff2"),
+         url("fonts/HelveticaNeueLTStd-MdCn.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "HelveticaNeueLTStd-Hv";
+    src: url("fonts/HelveticaNeueLTStd-Hv.woff2") format("woff2"),
+         url("fonts/HelveticaNeueLTStd-Hv.woff") format("woff");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "HelveticaNeueLTStd-Roman";
+    src: url("fonts/HelveticaNeueLTStd-Roman.woff2") format("woff2"),
+         url("fonts/HelveticaNeueLTStd-Roman.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --font-condensed: "HelveticaNeueLTStd-MdCn", "Arial Narrow", Arial, sans-serif;
+    --font-alt-header: "HelveticaNeueLTStd-Hv", "Arial Black", Arial, sans-serif;
+    --font-body: "HelveticaNeueLTStd-Roman", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  html, body { margin: 0; padding: 0; background: #f5f9fb; font-family: var(--font-body); font-size: 11pt; line-height: 15pt; color: #1c1c1a; }
+  .site-header { width: 100%; background: #ffffff; border-bottom: 3px solid #0a3049; box-sizing: border-box; }
+  .site-header-inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .org-logo { display: flex; align-items: center; }
+  .org-logo img { display: block; height: 44px; width: auto; }
+  .org-divider { width: 1px; height: 36px; background: #d8d6cc; }
+  .header-cta { margin-left: auto; display: inline-flex; align-items: center; white-space: nowrap; background: #0a3049; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; padding: 11px 20px; border-radius: 999px; transition: background 0.12s ease; }
+  .header-cta:hover { background: #00a9c9; }
+
+  #wrap { max-width: 1080px; margin: 0 auto; padding: 40px 24px 64px; }
+
+  /* header */
+  .page-header { margin: 0 0 40px; }
+  .page-title { font-family: var(--font-alt-header); font-size: 34px; font-weight: 800; letter-spacing: 0.06em; line-height: 1.25; margin: 0 0 10px; color: #0a3049; white-space: nowrap; }
+  .page-subtitle { font-size: 16.5px; line-height: 1.6; color: #55534d; margin: 0; }
+  .page-subtitle a { color: #0a3049; font-weight: 600; text-decoration: underline; }
+  .page-subtitle a:hover { color: #00a9c9; }
+  @media (max-width: 560px) {
+    .page-title { font-size: 26px; letter-spacing: 0.04em; }
+  }
+  @media (max-width: 380px) {
+    .page-title { font-size: 21px; }
+  }
+
+  .section-title { font-family: var(--font-condensed); font-size: 24px; font-weight: 500; color: #0a3049; margin: 0 0 4px; }
+  .section-sub { font-size: 16px; color: #55534d; margin: 0 0 18px; }
+  section.block { margin-bottom: 56px; }
+  .map-section-wide { width: 100%; box-sizing: border-box; padding: 0 24px 56px; display: flex; justify-content: center; }
+  .map-section-wide-inner { width: 100%; max-width: 1600px; }
+  #primaryMap, #profileMapMount { width: 100%; }
+
+  /* whale switcher */
+  .whale-switcher { display: flex; gap: 10px; overflow-x: auto; padding: 2px 2px 10px; margin-bottom: 22px; scrollbar-width: thin; }
+  .switcher-chip { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; padding: 10px 16px; min-height: 44px; box-sizing: border-box; border-radius: 999px; border: 1.5px solid #d8d6cc; background: #ffffff; cursor: pointer; font-size: 14.5px; font-weight: 600; color: #33322e; white-space: nowrap; font-family: inherit; transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease; }
+  .switcher-chip:hover { border-color: #0a3049; }
+  .switcher-chip:focus-visible { outline: 2px solid #0a3049; outline-offset: 2px; }
+  .switcher-chip.active { background: #0a3049; border-color: #0a3049; color: #ffffff; }
+  .switcher-swatch { width: 14px; height: 14px; flex: none; }
+
+  /* profile */
+  .profile { display: flex; flex-direction: column; gap: 22px; background: #ffffff; border: 1.5px solid #d8d6cc; border-radius: 14px; padding: 26px 28px; }
+
+  .profile-media-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px; }
+  .profile-photo-col { flex: 1 1 320px; min-width: 240px; }
+  .profile-map-col { flex: 1.3 1 420px; min-width: 300px; }
+
+  .profile-photo { width: 100%; aspect-ratio: 4 / 3; border-radius: 10px; background: repeating-linear-gradient(45deg, #f0efe9, #f0efe9 8px, #e7e5db 8px, #e7e5db 16px); border: 1px dashed #c9c7bc; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; box-sizing: border-box; }
+  .profile-photo-img { object-fit: cover; border: 1px solid #d8d6cc; background: #f0efe9; }
+  .profile-photo svg { opacity: 0.5; width: 40px; height: 40px; }
+  .profile-photo span { font-size: 12.5px; color: #6b6862; letter-spacing: 0.02em; text-align: center; padding: 0 6px; }
+  .profile-top { display: flex; align-items: center; gap: 9px; margin-bottom: 4px; flex-wrap: wrap; }
+  .profile-name { font-family: var(--font-condensed); font-size: 27px; font-weight: 500; color: #0a3049; }
+  .profile-eg { font-size: 13.5px; color: #6b6862; font-variant-numeric: tabular-nums; }
+  .about-text { font-size: 14.5px; line-height: 1.65; color: #33322e; }
+  .profile-fields { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 0; }
+  .profile-field { display: flex; align-items: baseline; gap: 6px; }
+  .profile-field-label { font-size: 13.5px; color: #55534d; font-weight: 600; }
+  .profile-field-value { font-size: 14.5px; color: #1c1c1a; }
+  .update-label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6b6862; margin-bottom: 6px; }
+  .update-box { border: 1.5px dashed #d8d6cc; border-radius: 10px; padding: 14px 16px; font-size: 14.5px; line-height: 1.65; color: #33322e; background: #fbfaf6; }
+
+  .profile-media-caption { font-size: 13.5px; font-weight: 600; color: #0a3049; margin-bottom: 8px; }
+
+  .all-map-link-row { margin: -8px 0 22px; }
+  .all-map-link { display: inline-flex; align-items: center; gap: 5px; font-size: 14.5px; font-weight: 600; color: #0a3049; text-decoration: none; background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; }
+  .all-map-link svg { width: 13px; height: 13px; transition: transform 0.12s ease; }
+  .all-map-link:hover svg { transform: translateX(3px); }
+
+  /* maps (shared by profile mini-map and the full "all whales" map) */
+  .map-sub { font-size: 14.5px; color: #55534d; margin: 0 0 4px; }
+  .map-section-text { font-size: 14.5px; line-height: 1.65; color: #33322e; margin: 0 0 16px; max-width: 760px; }
+  .stage { position: relative; width: 100%; background: #eaf3fb; border: 0.5px solid #d8d6cc; border-radius: 10px; overflow: hidden; max-height: 82vh; }
+  svg.map-svg { display: block; width: 100%; height: 100%; cursor: grab; }
+  svg.map-svg:active { cursor: grabbing; }
+  .land { fill: #ece8dd; stroke: #c9c4b4; stroke-width: 0.6; }
+  .grat { fill: none; stroke: #c7ddef; stroke-width: 0.5; }
+  .pt { cursor: pointer; stroke: #ffffff; stroke-width: 1; opacity: 0.88; }
+  .pt.dim { opacity: 0.08; }
+  .pt:hover { opacity: 1; stroke-width: 1.6; }
+  .cluster-badge { cursor: pointer; }
+  .cluster-badge circle { fill: #262521; fill-opacity: 0.85; stroke: #ffffff; stroke-width: 2; }
+  .cluster-badge:hover circle { fill-opacity: 1; }
+  .cluster-badge.active circle { fill: #1c1c1a; fill-opacity: 1; stroke: #00a9c9; stroke-width: 2.5; }
+  .cluster-badge text { fill: #f5f4ee; font-size: 13px; font-weight: 600; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+
+  .zoomctl { position: absolute; top: 10px; right: 10px; z-index: 20; display: flex; flex-direction: column; gap: 2px; background: #ffffff; border: 0.5px solid #d8d6cc; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+  .zoomctl button { width: 42px; height: 40px; border: none; background: #ffffff; color: #33322e; font-size: 19px; cursor: pointer; line-height: 1; }
+  .zoomctl button:hover { background: #f0efe9; }
+  .zoomctl button:not(:last-child) { border-bottom: 0.5px solid #e2e0d6; }
+.zoomctl button.reset-btn { font-size: 17px; }
+
+  .map-activate { position: absolute; inset: 0; z-index: 15; display: flex; align-items: center; justify-content: center; background: rgba(28,28,26,0.14); cursor: pointer; transition: opacity 0.15s ease; }
+  .map-activate-badge { display: flex; align-items: center; gap: 8px; background: rgba(10,48,73,0.92); color: #ffffff; font-size: 13.5px; font-weight: 600; padding: 10px 16px; border-radius: 999px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); pointer-events: none; }
+  .map-activate-badge svg { width: 16px; height: 16px; flex: none; }
+  .map-activate.hidden { opacity: 0; pointer-events: none; }
+
+  .map-status { position: relative; width: 100%; box-sizing: border-box; background: #eaf3fb; border: 0.5px solid #d8d6cc; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; padding: 28px 24px; }
+  .map-spinner { width: 32px; height: 32px; border: 3px solid #d3e3ea; border-top-color: #0a3049; border-radius: 50%; animation: map-spin 0.75s linear infinite; }
+  @keyframes map-spin { to { transform: rotate(360deg); } }
+  .map-status-text { font-size: 14px; color: #55534d; max-width: 320px; line-height: 1.5; }
+  .map-status-error .map-status-text { color: #7a3b2e; }
+  .map-status-error svg { color: #b5493a; }
+  .map-retry-btn { margin-top: 2px; padding: 9px 20px; border-radius: 999px; border: 1.5px solid #0a3049; background: #ffffff; color: #0a3049; font-size: 13.5px; font-weight: 600; cursor: pointer; font-family: inherit; min-height: 40px; }
+  .map-retry-btn:hover { background: #0a3049; color: #ffffff; }
+
+  .data-status { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 56px 24px; text-align: center; background: #ffffff; border: 1.5px solid #d8d6cc; border-radius: 14px; }
+  .data-status-text { font-size: 14px; color: #55534d; max-width: 360px; line-height: 1.5; }
+  .data-status-error .data-status-text { color: #7a3b2e; }
+  .data-status-error svg { color: #b5493a; }
+
+  .tooltip { position: absolute; pointer-events: none; background: #262521; color: #f5f4ee; font-size: 13.5px; padding: 6px 10px; border-radius: 6px; line-height: 1.5; opacity: 0; transition: opacity 0.08s; white-space: nowrap; z-index: 5; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+  .tooltip .tt-name { font-weight: 600; }
+  .tooltip .tt-sub { color: #d6d3c9; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 14px 0 4px; }
+  .leg-item { display: flex; align-items: center; gap: 6px; font-size: 14px; color: #33322e; cursor: pointer; padding: 6px 10px 6px 8px; min-height: 40px; box-sizing: border-box; border-radius: 6px; border: 0.5px solid transparent; user-select: none; }
+  .leg-item:hover { background: #ffffff; border-color: #d8d6cc; }
+  .leg-item.off { opacity: 0.35; }
+  .leg-swatch { width: 14px; height: 14px; flex: none; }
+  .leg-count { color: #6b6862; margin-left: 2px; }
+
+  .hint { font-size: 13.5px; color: #6b6862; margin-top: 8px; }
+
+  .popout { position: absolute; width: 240px; background: #ffffff; border: 0.5px solid #d8d6cc; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); padding: 14px 16px 16px; z-index: 8; display: none; }
+  .popout-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .popout-title { font-size: 14.5px; font-weight: 600; color: #1c1c1a; line-height: 1.35; }
+  .popout-count { font-size: 12.5px; color: #55534d; margin: 2px 0 8px; }
+  .popout-close { flex: none; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; color: #6b6862; font-size: 19px; line-height: 1; padding: 0; margin: -6px -8px 0 0; }
+  .popout-close:hover { color: #1c1c1a; }
+  .popout-whale-row { display: flex; align-items: center; gap: 7px; font-size: 13.5px; color: #33322e; padding: 8px 6px; min-height: 40px; box-sizing: border-box; margin: 0 -6px; border-radius: 6px; cursor: pointer; user-select: none; }
+  .popout-whale-row:hover { background: #f5f4ee; }
+  .popout-whale-row.off { opacity: 0.4; }
+  .popout-swatch { width: 13px; height: 13px; flex: none; }
+  .popout-wcount { margin-left: auto; color: #6b6862; font-size: 12.5px; }
+  .popout-btn { margin-top: 10px; width: 100%; min-height: 42px; padding: 8px; border-radius: 6px; border: 0.5px solid #d8d6cc; background: #f7f6f2; font-size: 13.5px; color: #33322e; cursor: pointer; }
+  .popout-btn:hover { background: #eeece3; }
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <div class="site-header-inner">
+    <div class="org-logo">
+      <img src="neaq-logo.png" alt="New England Aquarium">
+    </div>
+    <div class="org-divider"></div>
+    <div class="org-logo">
+      <img src="accol-logo.png" alt="Anderson Cabot Center for Ocean Life at the New England Aquarium">
+    </div>
+    <a class="header-cta" href="https://rightwhaleresearch.bigcartel.com/" target="_blank" rel="noopener">Sponsor a Right Whale</a>
+  </div>
+</div>
+
+<div id="wrap">
+
+  <header class="page-header">
+    <h1 class="page-title">Right Whale Sponsorship Updates</h1>
+    <p class="page-subtitle">For more than 45 years, the New England Aquarium&rsquo;s Right Whale Research Program has been at the forefront of right whale research since a remnant population was discovered in 1980. Our <a href="https://www.neaq.org/animal/right-whales/" target="_blank" rel="noopener">program</a> is the longest-running and most comprehensive North Atlantic right whale research and conservation initiative in the world. In addition to maintaining the <a href="https://rwcatalog.neaq.org/#/" target="_blank" rel="noopener">North Atlantic Right Whale Catalog</a>, we are investigating solutions to reduce the threats of boat strikes and fishing gear entanglements.</p>
+    <br><p class="page-subtitle">Thank you for your sponsorship of a North Atlantic right whale! Your support helps our scientists monitor their population status, habitat use, calving rates, and supports our work to inform and implement effective management initiatives to save this critically endangered species.</p>
+  </header>
+
+  <section class="block">
+    <h2 class="section-title">The Whales</h2>
+    <p class="section-sub">Select a sponsorship whale to see their profile and their sighting updates! Sighting updates for DATE to DATE. We thank survey teams and data contributors for their help in tracking these whales.</p>
+    <div class="whale-switcher" id="whaleSwitcher"></div>
+    <div class="all-map-link-row">
+      <button class="all-map-link" type="button" id="allMapLink">
+        <span>See all sponsored whales on one map</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </button>
+    </div>
+    <div class="profile" id="whaleProfile"></div>
+  </section>
+
+</div>
+
+<section class="map-section-wide" id="allMapSection">
+  <div class="map-section-wide-inner">
+    <h2 class="section-title">All Whales Map</h2>
+    <p class="map-sub">113 sightings across all seven whales, Miami to the Gulf of St. Lawrence.</p>
+    <p class="map-section-text">Placeholder for additional information about the All Whales Map.</p>
+    <div id="primaryMap"></div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+// ---------- data, now loaded at runtime from /data/*.json (synced from Airtable) instead
+// of being hardcoded here. See processAppData() below for how the raw JSON is turned into
+// the shapes the rest of this file expects. ----------
+let sightings = [];
+let whaleOrder = [];
+const whaleMetaData = {};   // per whale: { eg, about, update, count, topRegion }
+const whaleBioData = {};    // per whale: { birthYear, sex, age }
+const whalePhotoUrls = {};  // per whale: photo URL string, or "" if none supplied yet
+
+// Friendly labels for the RegionCode values used in the Sightings table.
+const REGION_NAMES = { NE: "Cape Cod Bay", NRTH: "the Gulf of St. Lawrence", MIDA: "the Mid-Atlantic Bight", GSC: "the Great South Channel", JL: "Jeffreys Ledge" };
+
+// Visual identity (color/shape/size) is a design choice, not sighting data, so it stays
+// hardcoded here. Any whale added in Airtable that isn't in these maps automatically gets
+// assigned one of the fallback colors/shapes below instead of breaking the map.
+const colors = {Manta:"#2a78d6", Shackelton:"#eb6834", Aphrodite:"#1baf7a", Boomerang:"#eda100", Gemini:"#e87ba4", Calvin:"#4a3aa7", Resolution:"#e34948"};
+const shapeOf = {Manta:"circle", Shackelton:"square", Aphrodite:"triangle", Boomerang:"diamond", Gemini:"cross", Calvin:"star", Resolution:"wye"};
+const sizeOf = { Resolution: 130 };
+const FALLBACK_COLORS = ["#6b6862", "#8a5fbf", "#2f9e8f", "#c2703d", "#3f6fae"];
+const FALLBACK_SHAPES = ["circle", "square", "triangle", "diamond", "cross", "star", "wye"];
+function ensureVisualIdentity(name, idx) {
+  if (!colors[name]) colors[name] = FALLBACK_COLORS[idx % FALLBACK_COLORS.length];
+  if (!shapeOf[name]) shapeOf[name] = FALLBACK_SHAPES[idx % FALLBACK_SHAPES.length];
+}
+
+const clusters = [
+  { code: "NE", label: "Cape Cod Bay & Great South Channel", centroid: [-70.237, 41.95], bbox: [-70.8439, 41.7857, -70.1242, 42.3538], count: 43, whales: { Shackelton: 27, Aphrodite: 8, Manta: 5, Gemini: 3 } },
+  { code: "NRTH", label: "Gulf of St. Lawrence", centroid: [-64.2182, 48.896], bbox: [-64.6654, 47.7088, -62.6307, 50.078], count: 58, whales: { Manta: 31, Boomerang: 13, Aphrodite: 10, Calvin: 4 } },
+  { code: "MIDA", label: "Mid-Atlantic Bight", centroid: [-73.7225, 38.5646], bbox: [-75.3584, 36.8406, -70.6423, 40.551], count: 8, whales: { Resolution: 4, Shackelton: 3, Aphrodite: 1 } }
+];
+
+const symbolSize = 64;
+function symbolPath(shape, size) {
+  const s = d3.symbol().size(size || symbolSize);
+  switch (shape) {
+    case "square": return s.type(d3.symbolSquare)();
+    case "triangle": return s.type(d3.symbolTriangle)();
+    case "diamond": return s.type(d3.symbolDiamond)();
+    case "cross": return s.type(d3.symbolCross)();
+    case "star": return s.type(d3.symbolStar)();
+    case "wye": return s.type(d3.symbolWye)();
+    default: return s.type(d3.symbolCircle)();
+  }
+}
+function swatchMarkup(name) {
+  return `<path d="${symbolPath(shapeOf[name])}" transform="scale(0.42)" fill="${colors[name]}" stroke="${colors[name]}" stroke-width="0.8"></path>`;
+}
+
+const FULL_EXTENT_BOUNDS = { type: "MultiPoint", coordinates: [[-80.6, 25.4], [-61.7, 50.7]] };
+function makeProjection(w, h, bounds) {
+  return d3.geoMercator().fitExtent([[22, 22], [w - 22, h - 22]], bounds || FULL_EXTENT_BOUNDS);
+}
+function whaleExtentBounds(name) {
+  const pts = sightings.filter(d => d["Whale Name"] === name);
+  const lons = pts.map(d => d.Longitude), lats = pts.map(d => d.Latitude);
+  const minLon = Math.min(...lons), maxLon = Math.max(...lons);
+  const minLat = Math.min(...lats), maxLat = Math.max(...lats);
+  const padLon = Math.max((maxLon - minLon) * 0.35, 0.6);
+  const padLat = Math.max((maxLat - minLat) * 0.35, 0.6);
+  return { type: "MultiPoint", coordinates: [[minLon - padLon, minLat - padLat], [maxLon + padLon, maxLat + padLat]] };
+}
+
+const PRIMARY_W = 680, PRIMARY_H = 880;
+const MINI_W = 760, MINI_H = 460;
+
+let landFeatures = null;
+
+// ---------- turn the raw Airtable-sourced JSON into the internal shapes used throughout ----------
+const DATA_BASE = "data/"; // folder holding whales.json / sightings.json / updates.json
+
+function processAppData(whalesRaw, sightingsRaw, updatesRaw) {
+  const egByName = {};
+  whalesRaw.forEach(w => { egByName[w.name] = w.eg; });
+
+  // Sightings: match the internal field names (SightingEGNo / "Whale Name" / Latitude /
+  // Longitude / RegionCode) the map-drawing code already expects, so nothing else in this
+  // file needs to change.
+  sightings = sightingsRaw.map(s => ({
+    SightingEGNo: egByName[s.whale] || "",
+    "Whale Name": s.whale,
+    Latitude: s.latitude,
+    Longitude: s.longitude,
+    RegionCode: s.region
+  }));
+
+  whaleOrder = whalesRaw.map(w => w.name);
+  whaleOrder.forEach((name, idx) => ensureVisualIdentity(name, idx));
+
+  const currentYear = new Date().getFullYear();
+  whalesRaw.forEach(w => {
+    whaleBioData[w.name] = { birthYear: w.birthYear, sex: w.sex, age: currentYear - w.birthYear };
+    whalePhotoUrls[w.name] = w.photoUrl || "";
+  });
+
+  // Count + top region per whale, computed live from the Sightings table instead of being
+  // pre-baked, so this stays correct as new sightings get added in Airtable.
+  whalesRaw.forEach(w => {
+    const pts = sightings.filter(s => s["Whale Name"] === w.name);
+    const regionCounts = {};
+    pts.forEach(p => { regionCounts[p.RegionCode] = (regionCounts[p.RegionCode] || 0) + 1; });
+    let topCode = null, topCount = -1;
+    Object.entries(regionCounts).forEach(([code, c]) => { if (c > topCount) { topCount = c; topCode = code; } });
+    whaleMetaData[w.name] = {
+      eg: w.eg,
+      about: w.about,
+      count: pts.length,
+      topRegion: REGION_NAMES[topCode] || topCode || "an unrecorded region"
+    };
+  });
+
+  // Most recent published update per whale.
+  const published = updatesRaw.filter(u => u.published !== false);
+  whalesRaw.forEach(w => {
+    const entries = published.filter(u => u.whale === w.name).sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    whaleMetaData[w.name].update = entries.length ? entries[0].text : "No update available yet.";
+  });
+
+  // Cluster sighting counts, recomputed live by filtering sightings within each cluster's
+  // (hand-picked, still hardcoded) geographic bounding box.
+  clusters.forEach(c => {
+    const [minLon, minLat, maxLon, maxLat] = c.bbox;
+    const within = sightings.filter(s => s.Longitude >= minLon && s.Longitude <= maxLon && s.Latitude >= minLat && s.Latitude <= maxLat);
+    const tally = {};
+    within.forEach(s => { tally[s["Whale Name"]] = (tally[s["Whale Name"]] || 0) + 1; });
+    c.count = within.length;
+    c.whales = tally;
+  });
+}
+
+// ---------- whale/sighting data loading / error placeholders ----------
+function renderDataLoading() {
+  whaleSwitcher.innerHTML = "";
+  whaleProfile.innerHTML = `
+    <div class="data-status">
+      <div class="map-spinner"></div>
+      <div class="data-status-text">Loading whale data&hellip;</div>
+    </div>
+  `;
+}
+function renderDataError() {
+  whaleSwitcher.innerHTML = "";
+  whaleProfile.innerHTML = `
+    <div class="data-status data-status-error">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"></path><path d="M12 16.5v.01"></path><path d="M10.3 3.9L2.5 18a1.6 1.6 0 0 0 1.4 2.4h16.2a1.6 1.6 0 0 0 1.4-2.4L13.7 3.9a1.6 1.6 0 0 0-2.8 0z"></path></svg>
+      <div class="data-status-text">We couldn't load whale data. Check your connection and try again.</div>
+      <button class="map-retry-btn" type="button" id="dataRetryBtn">Retry</button>
+    </div>
+  `;
+  document.getElementById("dataRetryBtn").addEventListener("click", loadAppData);
+}
+
+// ---------- map loading / error placeholders ----------
+function renderMapLoading(container, w, h) {
+  container.html("").append("div")
+    .attr("class", "map-status")
+    .style("aspect-ratio", `${w} / ${h}`)
+    .html(`
+      <div class="map-spinner"></div>
+      <div class="map-status-text">Loading map&hellip;</div>
+    `);
+}
+
+function renderMapError(container, w, h, onRetry) {
+  container.html("").append("div")
+    .attr("class", "map-status map-status-error")
+    .style("aspect-ratio", `${w} / ${h}`)
+    .html(`
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"></path><path d="M12 16.5v.01"></path><path d="M10.3 3.9L2.5 18a1.6 1.6 0 0 0 1.4 2.4h16.2a1.6 1.6 0 0 0 1.4-2.4L13.7 3.9a1.6 1.6 0 0 0-2.8 0z"></path></svg>
+      <div class="map-status-text">This map couldn't be loaded. Check your connection and try again.</div>
+      <button class="map-retry-btn" type="button">Retry</button>
+    `);
+  container.select(".map-retry-btn").on("click", onRetry);
+}
+
+// ---------- reusable map factory ----------
+function mountMap(parent, opts) {
+  const { data, showClusters, showLegend, hintText, hintPosition } = opts;
+  let width = opts.width, height = opts.height;
+  let extentBounds = opts.extentBounds || FULL_EXTENT_BOUNDS;
+  let scaleMin = opts.scaleMin || 1;
+  let projection = makeProjection(width, height, extentBounds);
+  let path = d3.geoPath(projection);
+
+  parent.html("");
+
+  function buildLegendAndHint() {
+    const lg = showLegend ? parent.append("div").attr("class", "legend") : null;
+    if (hintText) parent.append("p").attr("class", "hint").html(hintText);
+    return lg;
+  }
+
+  let legend;
+  if (hintPosition === "above") legend = buildLegendAndHint();
+
+  const stage = parent.append("div").attr("class", "stage").style("aspect-ratio", `${width} / ${height}`);
+  const svg = stage.append("svg").attr("class", "map-svg").attr("viewBox", `0 0 ${width} ${height}`);
+  const zoomctl = stage.append("div").attr("class", "zoomctl");
+  const zoomInBtn = zoomctl.append("button").attr("aria-label", "Zoom in").text("+");
+  const zoomOutBtn = zoomctl.append("button").attr("aria-label", "Zoom out").html("&minus;");
+  const resetBtn = showClusters ? zoomctl.append("button").attr("class", "reset-btn").attr("aria-label", "Reset map").attr("title", "Reset map").html("&#8634;") : null;
+  const tooltip = stage.append("div").attr("class", "tooltip");
+  const popoutEl = showClusters ? stage.append("div").attr("class", "popout") : null;
+
+  // Overlay that must be clicked/tapped before scroll-to-zoom or touch-drag activate on this
+  // map. Without it, a visitor scrolling down the page with their cursor over the map would
+  // have that scroll hijacked into zooming the map instead of continuing to scroll the page.
+  const activateOverlay = stage.append("div").attr("class", "map-activate").attr("tabindex", "0").attr("role", "button").attr("aria-label", "Click to interact with this map");
+  activateOverlay.append("div").attr("class", "map-activate-badge").html(`
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"></circle></svg>
+    <span>Click or tap to explore the map</span>
+  `);
+  function dismissActivateOverlay() { activateOverlay.classed("hidden", true); }
+  activateOverlay.on("click", dismissActivateOverlay);
+  activateOverlay.on("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") { event.preventDefault(); dismissActivateOverlay(); }
+  });
+
+  const gRoot = svg.append("g");
+  const gLand = gRoot.append("g");
+  const gGrat = gRoot.append("g");
+  const gPts = svg.append("g");
+  const gClusters = showClusters ? svg.append("g") : null;
+
+  svg.insert("rect", ":first-child").attr("width", width).attr("height", height).attr("fill", "transparent");
+
+  const graticule = d3.geoGraticule().step([5, 5]);
+  gGrat.append("path").datum(graticule).attr("class", "grat").attr("d", path);
+
+  const stageNode = stage.node();
+  let activeWhale = null;
+  let openCluster = null;
+  let currentTransform = d3.zoomIdentity;
+
+  function pointTransform(d) {
+    const p = projection([d.Longitude, d.Latitude]);
+    if (!p) return null;
+    const [x, y] = currentTransform.apply(p);
+    return `translate(${x},${y})`;
+  }
+  function clusterTransform(c) {
+    const p = projection(c.centroid);
+    if (!p) return null;
+    const [x, y] = currentTransform.apply(p);
+    return `translate(${x},${y})`;
+  }
+
+  function drawPoints() {
+    gPts.selectAll("path.pt")
+      .data(data)
+      .join("path")
+      .attr("class", "pt")
+      .attr("d", d => symbolPath(shapeOf[d["Whale Name"]], sizeOf[d["Whale Name"]]))
+      .attr("transform", pointTransform)
+      .attr("fill", d => colors[d["Whale Name"]])
+      .attr("stroke", "#ffffff")
+      .attr("stroke-width", d => d["Whale Name"] === "Resolution" ? 1.6 : 1)
+      .on("mouseenter", (event, d) => {
+        const [x, y] = d3.pointer(event, stageNode);
+        tooltip.html(`<div class="tt-name">${d["Whale Name"]}</div><div class="tt-sub">Eg #${d.SightingEGNo}</div>`)
+          .style("left", (x + 14) + "px").style("top", (y - 10) + "px").style("opacity", 1);
+      })
+      .on("mousemove", (event) => {
+        const [x, y] = d3.pointer(event, stageNode);
+        tooltip.style("left", (x + 14) + "px").style("top", (y - 10) + "px");
+      })
+      .on("mouseleave", () => tooltip.style("opacity", 0));
+    applyFilter();
+  }
+
+  function drawClusters() {
+    const badge = gClusters.selectAll("g.cluster-badge")
+      .data(clusters, d => d.code)
+      .join("g")
+      .attr("class", "cluster-badge")
+      .attr("transform", clusterTransform)
+      .on("click", (event, d) => { event.stopPropagation(); togglePopout(d); });
+    badge.append("circle").attr("r", 17);
+    badge.append("text").text(d => d.count);
+  }
+
+  function applyFilter() {
+    gPts.selectAll("path.pt").classed("dim", d => activeWhale && d["Whale Name"] !== activeWhale);
+  }
+
+  function syncWhaleFilterUI() {
+    applyFilter();
+    if (legend) {
+      legend.selectAll(".leg-item").classed("off", function () {
+        const n = d3.select(this).attr("data-name");
+        return activeWhale && n !== activeWhale;
+      });
+    }
+    if (openCluster && popoutEl) {
+      popoutEl.selectAll(".popout-whale-row").classed("off", function () {
+        const n = d3.select(this).attr("data-name");
+        return activeWhale && n !== activeWhale;
+      });
+    }
+  }
+
+  function screenPos(lonLat) {
+    const p = projection(lonLat);
+    const [tx, ty] = currentTransform.apply(p);
+    const scaleFactor = stageNode.clientWidth / width;
+    return [tx * scaleFactor, ty * scaleFactor];
+  }
+
+  function positionPopout() {
+    if (!openCluster || !popoutEl) return;
+    const [sx, sy] = screenPos(openCluster.centroid);
+    const boxW = 228;
+    const boxH = popoutEl.node().offsetHeight || 200;
+    let left = sx + 20;
+    const maxLeft = stageNode.clientWidth - boxW - 8;
+    if (left > maxLeft) left = sx - boxW - 20;
+    left = Math.max(8, Math.min(left, maxLeft));
+    let top = Math.max(8, Math.min(sy - boxH / 2, stageNode.clientHeight - boxH - 8));
+    popoutEl.style("left", left + "px").style("top", top + "px");
+  }
+
+  function renderPopoutContent(c) {
+    const rows = Object.entries(c.whales).map(([name, count]) => {
+      const off = activeWhale && activeWhale !== name ? " off" : "";
+      return `<div class="popout-whale-row${off}" data-name="${name}">
+        <svg class="popout-swatch" viewBox="-6 -6 12 12">${swatchMarkup(name)}</svg>
+        <span>${name}</span>
+        <span class="popout-wcount">${count}</span>
+      </div>`;
+    }).join("");
+    popoutEl.html(`
+      <div class="popout-head">
+        <div>
+          <div class="popout-title">${c.label}</div>
+          <div class="popout-count">${c.count} sightings</div>
+        </div>
+        <button class="popout-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="popout-whales">${rows}</div>
+      <button class="popout-btn">Zoom to this cluster</button>
+    `);
+    popoutEl.select(".popout-close").on("click", (event) => { event.stopPropagation(); closePopout(); });
+    popoutEl.select(".popout-btn").on("click", (event) => { event.stopPropagation(); zoomToBBox(c.bbox); });
+    popoutEl.selectAll(".popout-whale-row").on("click", function (event) {
+      event.stopPropagation();
+      const name = d3.select(this).attr("data-name");
+      activeWhale = activeWhale === name ? null : name;
+      syncWhaleFilterUI();
+    });
+  }
+
+  function togglePopout(c) {
+    if (openCluster && openCluster.code === c.code) { closePopout(); return; }
+    openCluster = c;
+    gClusters.selectAll("g.cluster-badge").classed("active", d => d.code === c.code);
+    renderPopoutContent(c);
+    popoutEl.style("display", "block");
+    positionPopout();
+  }
+
+  function closePopout() {
+    openCluster = null;
+    if (gClusters) gClusters.selectAll("g.cluster-badge").classed("active", false);
+    if (popoutEl) popoutEl.style("display", "none");
+  }
+
+  function zoomToBBox(bbox) {
+    const [lon0, lat0, lon1, lat1] = bbox;
+    const p0 = projection([lon0, lat1]);
+    const p1 = projection([lon1, lat0]);
+    const dx = Math.max(30, p1[0] - p0[0]);
+    const dy = Math.max(30, p1[1] - p0[1]);
+    const cx = (p0[0] + p1[0]) / 2, cy = (p0[1] + p1[1]) / 2;
+    const scale = Math.max(scaleMin, Math.min(10, 0.8 / Math.max(dx / width, dy / height)));
+    const tx = width / 2 - scale * cx;
+    const ty = height / 2 - scale * cy;
+    svg.transition().duration(650).call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
+  }
+
+  const zoom = d3.zoom()
+    .scaleExtent([scaleMin, 10])
+    .translateExtent([[-width * 0.12, -height * 0.12], [width * 1.12, height * 1.12]])
+    .on("zoom", (event) => {
+      currentTransform = event.transform;
+      gRoot.attr("transform", currentTransform);
+      gLand.attr("stroke-width", 0.6 / currentTransform.k);
+      gGrat.attr("stroke-width", 0.5 / currentTransform.k);
+      gPts.selectAll("path.pt").attr("transform", pointTransform);
+      if (gClusters) gClusters.selectAll("g.cluster-badge").attr("transform", clusterTransform);
+      positionPopout();
+    });
+
+  svg.call(zoom);
+  svg.select("rect").on("click", () => closePopout());
+  zoomInBtn.on("click", () => svg.transition().duration(200).call(zoom.scaleBy, 1.6));
+  zoomOutBtn.on("click", () => svg.transition().duration(200).call(zoom.scaleBy, 0.625));
+
+  if (landFeatures) {
+    gLand.selectAll("path").data(landFeatures).join("path").attr("class", "land").attr("d", path);
+  }
+  if (showClusters) drawClusters();
+  drawPoints();
+
+  if (hintPosition !== "above") legend = buildLegendAndHint();
+
+  if (legend) {
+    const counts = {};
+    data.forEach(d => { counts[d["Whale Name"]] = (counts[d["Whale Name"]] || 0) + 1; });
+    [...whaleOrder].sort((a, b) => a.localeCompare(b)).forEach(name => {
+      if (!counts[name]) return;
+      const item = legend.append("div").attr("class", "leg-item").on("click", function () {
+        activeWhale = activeWhale === name ? null : name;
+        syncWhaleFilterUI();
+      }).attr("data-name", name);
+      item.append("svg").attr("class", "leg-swatch").attr("viewBox", "-6 -6 12 12").html(swatchMarkup(name));
+      item.append("span").text(name);
+      item.append("span").attr("class", "leg-count").text(`(${counts[name]})`);
+    });
+  }
+
+   function resetMap() {
+    activeWhale = null;
+    closePopout();
+    syncWhaleFilterUI();
+    svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+  }
+  if (resetBtn) resetBtn.on("click", resetMap);
+
+  return {
+    focusWhale: (name) => {
+      activeWhale = name;
+      syncWhaleFilterUI();
+      const whalePoints = data.filter(d => d["Whale Name"] === name);
+      if (!whalePoints.length) return;
+      const lons = whalePoints.map(d => d.Longitude), lats = whalePoints.map(d => d.Latitude);
+      zoomToBBox([Math.min(...lons), Math.min(...lats), Math.max(...lons), Math.max(...lats)]);
+    },
+    reset: resetMap
+  };
+}
+
+// ---------- whale switcher + profile ----------
+const whaleSwitcher = document.getElementById("whaleSwitcher");
+const whaleProfile = document.getElementById("whaleProfile");
+let activeWhale = null;
+let whaleDisplayOrder = [];
+
+document.getElementById("allMapLink").addEventListener("click", () => {
+  document.getElementById("allMapSection").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+// Every whale in the Whales table is a sponsored whale on this site, so the switcher is
+// just plain alphabetical order - no subset to float to the front.
+function buildSwitcher() {
+  whaleDisplayOrder = [...whaleOrder].sort((a, b) => a.localeCompare(b));
+
+  whaleSwitcher.innerHTML = "";
+  whaleDisplayOrder.forEach(name => {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "switcher-chip";
+    chip.dataset.name = name;
+    chip.innerHTML = `
+      <svg class="switcher-swatch" viewBox="-6 -6 12 12">${swatchMarkup(name)}</svg>
+      <span>${name}</span>
+    `;
+    chip.addEventListener("click", () => selectWhale(name));
+    whaleSwitcher.appendChild(chip);
+  });
+}
+
+function setActiveChip(name) {
+  whaleSwitcher.querySelectorAll(".switcher-chip").forEach(el => {
+    el.classList.toggle("active", el.dataset.name === name);
+  });
+}
+
+function selectWhale(name) {
+  activeWhale = name;
+  setActiveChip(name);
+  renderProfile(name);
+}
+
+function renderProfile(name) {
+  const m = whaleMetaData[name];
+  const bio = whaleBioData[name];
+  const photoUrl = whalePhotoUrls[name];
+  const photoMarkup = photoUrl
+    ? `<img class="profile-photo profile-photo-img" src="${photoUrl}" alt="Photo of ${name}">`
+    : `<div class="profile-photo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#918f86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect>
+            <circle cx="8" cy="10" r="1.6"></circle>
+            <path d="M2.5 16l5-5 4.5 4.5L17 10l4.5 5.5"></path>
+          </svg>
+          <span>Photo placeholder</span>
+        </div>`;
+  whaleProfile.innerHTML = `
+    <div class="profile-top">
+      <svg class="switcher-swatch" width="18" height="18" viewBox="-6 -6 12 12">${swatchMarkup(name)}</svg>
+      <div class="profile-name">${name}</div>
+      <span class="profile-eg">Eg #${m.eg}</span>
+    </div>
+    <div>
+      <div class="update-label">About</div>
+      <div class="about-text">${m.about}</div>
+    </div>
+    <div class="profile-fields">
+      <div class="profile-field"><span class="profile-field-label">Birth Year:</span><span class="profile-field-value">${bio.birthYear}</span></div>
+      <div class="profile-field"><span class="profile-field-label">Sex:</span><span class="profile-field-value">${bio.sex}</span></div>
+      <div class="profile-field"><span class="profile-field-label">Age:</span><span class="profile-field-value">${bio.age}</span></div>
+    </div>
+    <div>
+      <div class="update-label">Update</div>
+      <div class="update-box">${m.update}</div>
+    </div>
+    <div class="profile-media-row">
+      <div class="profile-photo-col">
+        <div class="profile-media-caption">Photo of ${name}</div>
+        <p class="hint" style="margin-top: 0; margin-bottom: 8px;">Photo Credit</p>
+        ${photoMarkup}
+      </div>
+      <div class="profile-map-col">
+        <div class="profile-media-caption">Where ${name} has been sighted</div>
+        <p class="hint" style="margin-top: 0; margin-bottom: 8px;">${m.count} sightings, mostly in ${m.topRegion}</p>
+        <div id="profileMapMount"></div>
+      </div>
+    </div>
+  `;
+
+  if (landFeatures) {
+    mountProfileMap(name);
+  } else {
+    renderMapLoading(d3.select("#profileMapMount"), MINI_W, MINI_H);
+  }
+}
+
+function mountProfileMap(name) {
+  const mount = d3.select("#profileMapMount");
+  mount.html("");
+  const data = sightings.filter(d => d["Whale Name"] === name);
+  mountMap(mount, {
+    data,
+    width: MINI_W, height: MINI_H,
+    extentBounds: whaleExtentBounds(name),
+    scaleMin: 0.6,
+    showClusters: false, showLegend: false,
+    hintText: "Scroll to zoom, drag to pan, hover a point for details."
+  });
+}
+
+// ---------- load whale/sighting/update data and map coastline data independently ----------
+// The primary map needs BOTH before it can be drawn (it needs coastline geometry AND
+// sightings to plot), so tryMountPrimaryMap() is the rendezvous point both loaders call
+// into - whichever finishes second is the one that actually triggers the map to appear.
+let primaryMapApi = null;
+let dataReady = false;
+let landReady = false;
+const WORLD_ATLAS_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
+
+function loadAppData() {
+  renderDataLoading();
+  Promise.all([
+    fetch(DATA_BASE + "whales.json").then(r => { if (!r.ok) throw new Error("whales.json " + r.status); return r.json(); }),
+    fetch(DATA_BASE + "sightings.json").then(r => { if (!r.ok) throw new Error("sightings.json " + r.status); return r.json(); }),
+    fetch(DATA_BASE + "updates.json").then(r => { if (!r.ok) throw new Error("updates.json " + r.status); return r.json(); })
+  ])
+    .then(([whalesRaw, sightingsRaw, updatesRaw]) => {
+      processAppData(whalesRaw, sightingsRaw, updatesRaw);
+      dataReady = true;
+      buildSwitcher();
+      const defaultWhale = whaleDisplayOrder[0];
+      selectWhale(defaultWhale);
+      tryMountPrimaryMap();
+    })
+    .catch(err => {
+      console.error("Failed to load whale/sighting data:", err);
+      renderDataError();
+    });
+}
+
+function loadMapData() {
+  renderMapLoading(d3.select("#primaryMap"), PRIMARY_W, PRIMARY_H);
+  d3.json(WORLD_ATLAS_URL)
+    .then(world => {
+      landFeatures = topojson.feature(world, world.objects.land).features;
+      landReady = true;
+      tryMountPrimaryMap();
+    })
+    .catch(err => {
+      console.error("Failed to load map coastline data:", err);
+      renderMapError(d3.select("#primaryMap"), PRIMARY_W, PRIMARY_H, loadMapData);
+      const mount = d3.select("#profileMapMount");
+      if (!mount.empty() && dataReady) renderMapError(mount, MINI_W, MINI_H, loadMapData);
+    });
+}
+
+function tryMountPrimaryMap() {
+  if (!dataReady || !landReady) return;
+  primaryMapApi = mountMap(d3.select("#primaryMap"), {
+    data: sightings,
+    width: PRIMARY_W, height: PRIMARY_H,
+    showClusters: true, showLegend: true, hintPosition: "above",
+    hintText: "Scroll or use the buttons to zoom, drag to pan &middot; click a numbered cluster for details &middot; hover a point for whale info &middot; click a name above to isolate that whale"
+  });
+  // Upgrade whichever whale's mini-map is currently showing its loading placeholder.
+  if (activeWhale && !d3.select("#profileMapMount svg").node()) {
+    mountProfileMap(activeWhale);
+  }
+}
+
+loadAppData();
+loadMapData();
+</script>
+
+</body>
+</html>
