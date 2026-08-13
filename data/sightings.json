@@ -1,0 +1,810 @@
+[
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-15",
+    "latitude": 41.90675,
+    "longitude": -70.15763,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-06-10",
+    "latitude": 47.92712,
+    "longitude": -63.79166,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Resolution",
+    "date": "2024-01-23",
+    "latitude": 38.78305,
+    "longitude": -74.44167,
+    "region": "MIDA",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-02-12",
+    "latitude": 42.01285,
+    "longitude": -70.12417,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-01-23",
+    "latitude": 36.84055,
+    "longitude": -75.3584,
+    "region": "MIDA",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-08",
+    "latitude": 47.7782,
+    "longitude": -64.1879,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-09-12",
+    "latitude": 50.01988,
+    "longitude": -64.47934,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-11",
+    "latitude": 47.75777,
+    "longitude": -64.2136,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-10-29",
+    "latitude": 49.99401,
+    "longitude": -64.32796,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-09-18",
+    "latitude": 50.0655,
+    "longitude": -64.34681,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-16",
+    "latitude": 41.92903,
+    "longitude": -70.16152,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-03-16",
+    "latitude": 41.88937,
+    "longitude": -70.21625,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-05-26",
+    "latitude": 48.11728,
+    "longitude": -63.6481,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-17",
+    "latitude": 47.78474,
+    "longitude": -64.2315,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-09-11",
+    "latitude": 50.03209,
+    "longitude": -64.36666,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-08-31",
+    "latitude": 50.03405,
+    "longitude": -64.42216,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-20",
+    "latitude": 42.02517,
+    "longitude": -70.15717,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-10-25",
+    "latitude": 50.01926,
+    "longitude": -64.51208,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-12",
+    "latitude": 47.77563,
+    "longitude": -64.1986,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-09-04",
+    "latitude": 50.03052,
+    "longitude": -64.51417,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-06-22",
+    "latitude": 48.06883,
+    "longitude": -63.58402,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-06-17",
+    "latitude": 47.82315,
+    "longitude": -63.99786,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-07-03",
+    "latitude": 47.90725,
+    "longitude": -64.0373,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Gemini",
+    "date": "2024-02-07",
+    "latitude": 41.44357,
+    "longitude": -69.35122,
+    "region": "GSC",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-08-15",
+    "latitude": 50.02392,
+    "longitude": -64.66542,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-11",
+    "latitude": 47.76037,
+    "longitude": -64.2232,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-21",
+    "latitude": 42.00435,
+    "longitude": -70.15317,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-03-13",
+    "latitude": 41.86982,
+    "longitude": -70.22575,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-08-15",
+    "latitude": 47.99969,
+    "longitude": -63.79688,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-02-12",
+    "latitude": 42.01443,
+    "longitude": -70.1385,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-19",
+    "latitude": 42.02155,
+    "longitude": -70.16917,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-08-15",
+    "latitude": 50.00604,
+    "longitude": -64.62608,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Resolution",
+    "date": "2024-03-01",
+    "latitude": 39.42533,
+    "longitude": -73.45992,
+    "region": "MIDA",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-08-14",
+    "latitude": 49.99412,
+    "longitude": -64.66303,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-08-18",
+    "latitude": 50.02321,
+    "longitude": -64.41153,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-17",
+    "latitude": 47.77281,
+    "longitude": -64.2278,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-12",
+    "latitude": 47.7877,
+    "longitude": -64.1915,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-03-13",
+    "latitude": 41.88954,
+    "longitude": -70.22991,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-08-02",
+    "latitude": 47.77985,
+    "longitude": -63.9997,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-01-23",
+    "latitude": 36.84055,
+    "longitude": -75.35836,
+    "region": "MIDA",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-03-14",
+    "latitude": 41.90274,
+    "longitude": -70.2184,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-17",
+    "latitude": 41.94076,
+    "longitude": -70.22877,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-09-15",
+    "latitude": 50.02656,
+    "longitude": -64.47093,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-29",
+    "latitude": 41.91577,
+    "longitude": -70.25352,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-16",
+    "latitude": 41.90808,
+    "longitude": -70.16618,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-17",
+    "latitude": 47.7872,
+    "longitude": -64.22808,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Gemini",
+    "date": "2024-01-22",
+    "latitude": 41.0286,
+    "longitude": -69.66456,
+    "region": "GSC",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-17",
+    "latitude": 47.80667,
+    "longitude": -64.2337,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-17",
+    "latitude": 41.91599,
+    "longitude": -70.22158,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-01-23",
+    "latitude": 36.84748,
+    "longitude": -75.3491,
+    "region": "MIDA",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-04-13",
+    "latitude": 42.06241,
+    "longitude": -70.24984,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-09-04",
+    "latitude": 50.07799,
+    "longitude": -64.50196,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-08-27",
+    "latitude": 50.02754,
+    "longitude": -64.47473,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-16",
+    "latitude": 41.9276,
+    "longitude": -70.1616,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-10-26",
+    "latitude": 49.98991,
+    "longitude": -64.4238,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-09",
+    "latitude": 47.7775,
+    "longitude": -64.2195,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-09-12",
+    "latitude": 50.02295,
+    "longitude": -64.36372,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-16",
+    "latitude": 41.89828,
+    "longitude": -70.16382,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-08-18",
+    "latitude": 50.02102,
+    "longitude": -64.41247,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-08-13",
+    "latitude": 48.0195,
+    "longitude": -63.80227,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-13",
+    "latitude": 47.77366,
+    "longitude": -64.19583,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-03-13",
+    "latitude": 41.85076,
+    "longitude": -70.38068,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-10-26",
+    "latitude": 49.9959,
+    "longitude": -64.42564,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-04-08",
+    "latitude": 42.35377,
+    "longitude": -70.84393,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-01-24",
+    "latitude": 41.99978,
+    "longitude": -70.16272,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-06-28",
+    "latitude": 47.72459,
+    "longitude": -64.03178,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-19",
+    "latitude": 42.02717,
+    "longitude": -70.15967,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-03-16",
+    "latitude": 42.01374,
+    "longitude": -70.22705,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-19",
+    "latitude": 42.04095,
+    "longitude": -70.17115,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Calvin",
+    "date": "2025-07-09",
+    "latitude": 47.72696,
+    "longitude": -64.1506,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-19",
+    "latitude": 42.02517,
+    "longitude": -70.16417,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-02",
+    "latitude": 41.996,
+    "longitude": -70.2215,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-08-31",
+    "latitude": 50.011,
+    "longitude": -64.43017,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-16",
+    "latitude": 47.75701,
+    "longitude": -64.246,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-06-28",
+    "latitude": 47.70883,
+    "longitude": -64.04867,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-03-16",
+    "latitude": 41.88975,
+    "longitude": -70.21448,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-09-18",
+    "latitude": 50.06252,
+    "longitude": -64.36433,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-06-06",
+    "latitude": 48.20346,
+    "longitude": -63.58532,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-09-18",
+    "latitude": 50.01718,
+    "longitude": -64.46193,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-19",
+    "latitude": 42.02535,
+    "longitude": -70.15807,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-10-20",
+    "latitude": 50.0025,
+    "longitude": -64.43487,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-03-14",
+    "latitude": 41.90467,
+    "longitude": -70.21543,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-09-15",
+    "latitude": 50.02624,
+    "longitude": -64.39936,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-10-25",
+    "latitude": 50.01866,
+    "longitude": -64.50892,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-16",
+    "latitude": 41.90008,
+    "longitude": -70.16162,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-02-09",
+    "latitude": 41.44464,
+    "longitude": -69.3,
+    "region": "GSC",
+    "notes": ""
+  },
+  {
+    "whale": "Resolution",
+    "date": "2024-01-23",
+    "latitude": 38.76813,
+    "longitude": -74.46169,
+    "region": "MIDA",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-16",
+    "latitude": 41.92217,
+    "longitude": -70.15887,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-08-15",
+    "latitude": 50.01036,
+    "longitude": -64.64214,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-02-20",
+    "latitude": 41.97399,
+    "longitude": -70.20445,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-17",
+    "latitude": 41.91517,
+    "longitude": -70.22128,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-03-13",
+    "latitude": 41.87136,
+    "longitude": -70.37876,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-07-13",
+    "latitude": 47.7768,
+    "longitude": -64.187,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-08-18",
+    "latitude": 50.06138,
+    "longitude": -64.36532,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-16",
+    "latitude": 41.9266,
+    "longitude": -70.14752,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-02-25",
+    "latitude": 41.97787,
+    "longitude": -70.17443,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-06-17",
+    "latitude": 47.81202,
+    "longitude": -63.97085,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Manta",
+    "date": "2024-08-18",
+    "latitude": 50.02916,
+    "longitude": -64.35536,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Boomerange",
+    "date": "2024-06-16",
+    "latitude": 47.77593,
+    "longitude": -63.9705,
+    "region": "NRTH",
+    "notes": ""
+  },
+  {
+    "whale": "Shackleton",
+    "date": "2024-04-17",
+    "latitude": 41.92233,
+    "longitude": -70.2172,
+    "region": "NE",
+    "notes": ""
+  },
+  {
+    "whale": "Aphrodite",
+    "date": "2024-08-25",
+    "latitude": 50.02497,
+    "longitude": -64.37296,
+    "region": "NRTH",
+    "notes": ""
+  }
+]
