@@ -148,9 +148,10 @@
   .data-status-error .data-status-text { color: #7a3b2e; }
   .data-status-error svg { color: #b5493a; }
 
-  .tooltip { position: absolute; pointer-events: none; background: #262521; color: #f5f4ee; font-size: 13.5px; padding: 6px 10px; border-radius: 6px; line-height: 1.5; opacity: 0; transition: opacity 0.08s; white-space: nowrap; z-index: 5; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+  .tooltip { position: absolute; pointer-events: none; background: #262521; color: #f5f4ee; font-size: 13.5px; padding: 7px 11px; border-radius: 6px; line-height: 1.5; opacity: 0; transition: opacity 0.08s; max-width: 230px; z-index: 5; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
   .tooltip .tt-name { font-weight: 600; }
   .tooltip .tt-sub { color: #d6d3c9; }
+  .tooltip .tt-behavior { margin-top: 3px; padding-top: 3px; border-top: 1px solid rgba(255,255,255,0.15); }
 
   .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 14px 0 4px; }
   .leg-item { display: flex; align-items: center; gap: 6px; font-size: 14px; color: #33322e; cursor: pointer; padding: 6px 10px 6px 8px; min-height: 40px; box-sizing: border-box; border-radius: 6px; border: 0.5px solid transparent; user-select: none; }
@@ -217,7 +218,7 @@
 <section class="map-section-wide" id="allMapSection">
   <div class="map-section-wide-inner">
     <h2 class="section-title">All Whales Map</h2>
-    <p class="map-sub">113 sightings across all seven whales, Miami to the Gulf of St. Lawrence.</p>
+    <p class="map-sub" id="allMapSummary">Loading sighting totals&hellip; Miami to the Gulf of St. Lawrence.</p>
     <p class="map-section-text">Placeholder for additional information about the All Whales Map.</p>
     <div id="primaryMap"></div>
   </div>
@@ -274,6 +275,20 @@ function swatchMarkup(name) {
   return `<path d="${symbolPath(shapeOf[name])}" transform="scale(0.42)" fill="${colors[name]}" stroke="${colors[name]}" stroke-width="0.8"></path>`;
 }
 
+function sightingSummary(m) {
+  const noun = m.count === 1 ? "sighting" : "sightings";
+  return m.singleRegion
+    ? `${m.count} ${noun} in ${m.topRegion}`
+    : `${m.count} ${noun}, mostly in ${m.topRegion}`;
+}
+
+function formatMonthYear(dateStr) {
+  if (!dateStr) return "";
+  const d = new Date(dateStr + "T00:00:00"); // treat as a plain calendar date, not UTC-shifted
+  if (isNaN(d.getTime())) return "";
+  return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+}
+
 const FULL_EXTENT_BOUNDS = { type: "MultiPoint", coordinates: [[-80.6, 25.4], [-61.7, 50.7]] };
 function makeProjection(w, h, bounds) {
   return d3.geoMercator().fitExtent([[22, 22], [w - 22, h - 22]], bounds || FULL_EXTENT_BOUNDS);
@@ -308,7 +323,9 @@ function processAppData(whalesRaw, sightingsRaw, updatesRaw) {
     "Whale Name": s.whale,
     Latitude: s.latitude,
     Longitude: s.longitude,
-    RegionCode: s.region
+    RegionCode: s.region,
+    Date: s.date || "",
+    Behavior: s.behavior || ""
   }));
 
   whaleOrder = whalesRaw.map(w => w.name);
@@ -332,7 +349,8 @@ function processAppData(whalesRaw, sightingsRaw, updatesRaw) {
       eg: w.eg,
       about: w.about,
       count: pts.length,
-      topRegion: REGION_NAMES[topCode] || topCode || "an unrecorded region"
+      topRegion: REGION_NAMES[topCode] || topCode || "an unrecorded region",
+      singleRegion: Object.keys(regionCounts).length <= 1
     };
   });
 
@@ -353,6 +371,13 @@ function processAppData(whalesRaw, sightingsRaw, updatesRaw) {
     c.count = within.length;
     c.whales = tally;
   });
+
+  const summaryEl = document.getElementById("allMapSummary");
+  if (summaryEl) {
+    const sightingNoun = sightings.length === 1 ? "sighting" : "sightings";
+    const whaleNoun = whaleOrder.length === 1 ? "whale" : "whales";
+    summaryEl.textContent = `${sightings.length} ${sightingNoun} across all ${whaleOrder.length} ${whaleNoun}, Miami to the Gulf of St. Lawrence.`;
+  }
 }
 
 // ---------- whale/sighting data loading / error placeholders ----------
@@ -484,7 +509,11 @@ function mountMap(parent, opts) {
       .attr("stroke-width", d => d["Whale Name"] === "Resolution" ? 1.6 : 1)
       .on("mouseenter", (event, d) => {
         const [x, y] = d3.pointer(event, stageNode);
-        tooltip.html(`<div class="tt-name">${d["Whale Name"]}</div><div class="tt-sub">Eg #${d.SightingEGNo}</div>`)
+        const monthYear = formatMonthYear(d.Date);
+        const subParts = [`Eg #${d.SightingEGNo}`];
+        if (monthYear) subParts.push(monthYear);
+        const behaviorLine = d.Behavior ? `<div class="tt-behavior">${d.Behavior}</div>` : "";
+        tooltip.html(`<div class="tt-name">${d["Whale Name"]}</div><div class="tt-sub">${subParts.join(" &middot; ")}</div>${behaviorLine}`)
           .style("left", (x + 14) + "px").style("top", (y - 10) + "px").style("opacity", 1);
       })
       .on("mousemove", (event) => {
@@ -559,7 +588,7 @@ function mountMap(parent, opts) {
       <div class="popout-head">
         <div>
           <div class="popout-title">${c.label}</div>
-          <div class="popout-count">${c.count} sightings</div>
+          <div class="popout-count">${c.count} ${c.count === 1 ? "sighting" : "sightings"}</div>
         </div>
         <button class="popout-close" aria-label="Close">&times;</button>
       </div>
@@ -749,7 +778,7 @@ function renderProfile(name) {
       </div>
       <div class="profile-map-col">
         <div class="profile-media-caption">Where ${name} has been sighted</div>
-        <p class="hint" style="margin-top: 0; margin-bottom: 8px;">${m.count} sightings, mostly in ${m.topRegion}</p>
+        <p class="hint" style="margin-top: 0; margin-bottom: 8px;">${sightingSummary(m)}</p>
         <div id="profileMapMount"></div>
       </div>
     </div>
