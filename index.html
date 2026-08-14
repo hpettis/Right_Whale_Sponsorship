@@ -232,10 +232,11 @@
 // the shapes the rest of this file expects. ----------
 let sightings = [];
 let whaleOrder = [];
-const whaleMetaData = {};      // per whale: { eg, about, update, count, topRegion }
-const whaleBioData = {};       // per whale: { birthYear, sex, age }
-const whalePhotoUrls = {};     // per whale: photo URL string, or "" if none supplied yet
-const whalePhotoCredits = {};  // per whale: photo credit string, or "" if none supplied yet
+const whaleMetaData = {};           // per whale: { eg, about, update, count, topRegion }
+const whaleBioData = {};            // per whale: { birthYear, sex, age }
+const whalePhotoUrls = {};          // per whale: photo URL string, or "" if none supplied yet
+const whalePhotoCredits = {};       // per whale: photo credit string, or "" if none supplied yet
+const whalePhotoDescriptions = {};  // per whale: photo description string, or "" if none supplied yet
 
 // Friendly labels for the RegionCode values used in the Sightings table.
 const REGION_NAMES = { NE: "Cape Cod Bay", NRTH: "the Gulf of St. Lawrence", MIDA: "the Mid-Atlantic Bight", GSC: "the Great South Channel", JL: "Jeffreys Ledge" };
@@ -337,6 +338,7 @@ function processAppData(whalesRaw, sightingsRaw, updatesRaw) {
     whaleBioData[w.name] = { birthYear: w.birthYear, sex: w.sex, age: currentYear - w.birthYear };
     whalePhotoUrls[w.name] = w.photoUrl || "";
     whalePhotoCredits[w.name] = w.photoCredit || "";
+    whalePhotoDescriptions[w.name] = w.photoDescription || "";
   });
 
   // Count + top region per whale, computed live from the Sightings table instead of being
@@ -743,7 +745,8 @@ function renderProfile(name) {
   const m = whaleMetaData[name];
   const bio = whaleBioData[name];
   const photoUrl = whalePhotoUrls[name];
-  const photoCredit = whalePhotoCredits[name] || "Photo Credit";
+  const photoDescription = whalePhotoDescriptions[name] || "Photo Description";
+  const photoCreditText = whalePhotoCredits[name] ? `Photo Credit: ${whalePhotoCredits[name]}` : "Photo Credit";
   const photoMarkup = photoUrl
     ? `<img class="profile-photo profile-photo-img" src="${photoUrl}" alt="Photo of ${name}">`
     : `<div class="profile-photo">
@@ -776,8 +779,9 @@ function renderProfile(name) {
     <div class="profile-media-row">
       <div class="profile-photo-col">
         <div class="profile-media-caption">Photo of ${name}</div>
-        <p class="hint" style="margin-top: 0; margin-bottom: 8px;">${photoCredit}</p>
+        <p class="hint" style="margin-top: 0; margin-bottom: 8px;">${photoDescription}</p>
         ${photoMarkup}
+        <p class="hint" style="margin-top: 8px; margin-bottom: 0;">${photoCreditText}</p>
       </div>
       <div class="profile-map-col">
         <div class="profile-media-caption">Where ${name} has been sighted</div>
