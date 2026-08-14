@@ -97,7 +97,8 @@ async function main() {
         latitude: typeof f["Latitude"] === "number" ? f["Latitude"] : null,
         longitude: typeof f["Longitude"] === "number" ? f["Longitude"] : null,
         region: f["Region"] || "",
-        notes: f["Notes"] || ""
+        notes: f["Notes"] || "",
+        behavior: f["Behavior"] || ""
       };
     })
     .filter(s => s.whale && s.latitude !== null && s.longitude !== null);
