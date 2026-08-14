@@ -83,7 +83,8 @@ async function main() {
         about: f["About"] || "",
         sponsored: !!f["Sponsored"],
         photoUrl: photo,
-        photoCredit: f["Photo Credit"] || ""
+        photoCredit: f["Photo Credit"] || "",
+        photoDescription: f["Photo Description"] || ""
       };
     })
     .filter(w => w.name);
