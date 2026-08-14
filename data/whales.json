@@ -7,7 +7,8 @@
     "about": "Her first calf was born in 2006 and she has had four more calves since then. She is named for the boomerang-shaped scar on her tail.",
     "sponsored": false,
     "photoUrl": "",
-    "photoCredit": ""
+    "photoCredit": "",
+    "photoDescription": ""
   },
   {
     "name": "Resolution",
@@ -17,7 +18,8 @@
     "about": "Born off the coast of Florida on New Year's Day, his was the first right whale birth ever observed by researchers. ",
     "sponsored": false,
     "photoUrl": "",
-    "photoCredit": ""
+    "photoCredit": "",
+    "photoDescription": ""
   },
   {
     "name": "Shackleton",
@@ -27,7 +29,8 @@
     "about": "Named for the intrepid Antarctic explorer after a week-long adventure in the Delaware River as a yearling. ",
     "sponsored": false,
     "photoUrl": "",
-    "photoCredit": ""
+    "photoCredit": "",
+    "photoDescription": ""
   },
   {
     "name": "Aphrodite",
@@ -36,8 +39,9 @@
     "birthYear": 1987,
     "about": "A mother and grandmother, Aphrodite is named after the goddess of love because her callosity pattern is sometimes heart-shaped.",
     "sponsored": false,
-    "photoUrl": "https://v5.airtableusercontent.com/v3/u/56/56/1786744800000/rvmA9QW9k0eMxQoSgruPtA/cmh07DWFg_dB4HcYYQYgOpDysjBN4PWSWDkV0skerh6WsQUE9u2NtAmb0FrE_a1d6wRI7XCzVDLmbnkOcWz1isrwTxvjIwkXTBkt_9Lt7X9oRiIp2YaXTxlnCLhFeyKHnoaZXXRpPgnLbkbT2zNwqpLckpIGLs9IvZgwp4MrCvU2lNzjyJN5C8MHgVNXIiwU/pgUM-9CMvxmc0oo0bpxEr63gN-aMWIccDOpYCiFCQBM",
-    "photoCredit": "H. Pettis/Anderson Cabot Center for Ocean Life/New England Aquarium"
+    "photoUrl": "https://v5.airtableusercontent.com/v3/u/56/56/1786752000000/6NC7VNrkYEb6BcW35547NQ/iFmbjkhiDq24eQL9zV4EYEOPVLdHN41QcwcpAP_sRWXg8XZeo_muBjb8deDJ5xFvtJA743e3Ymzu14RioVjVFMQYEJ5YOD2JJgyoCQu9pnEFGk5ujtDRXhvnN_PE3N0ICegA2Bi6ND4wy2dfte_zZvTaY3yHeJOBXg4hFw_zle3mS90yxEHKeXew4MO6jdAl/slIN2GJzfzQsT-aIzomkQQZD_H5UyOD65wzJ0JMA_QU",
+    "photoCredit": "H. Pettis/Anderson Cabot Center for Ocean Life/New England Aquarium",
+    "photoDescription": "Aphrodite flukes at sunset in the Bay of Fundy."
   },
   {
     "name": "Calvin",
@@ -47,7 +51,8 @@
     "about": "Orphaned at only 8 months, this mother was named for the spunky character in the \"Calving and Hobbes\" comic strip. ",
     "sponsored": false,
     "photoUrl": "",
-    "photoCredit": ""
+    "photoCredit": "",
+    "photoDescription": ""
   },
   {
     "name": "Gemini",
@@ -57,7 +62,8 @@
     "about": "One of our oldest whales, Gemini has fathered at least four calves in the population. He's named for twin scars on his back. ",
     "sponsored": false,
     "photoUrl": "",
-    "photoCredit": ""
+    "photoCredit": "",
+    "photoDescription": ""
   },
   {
     "name": "Manta",
@@ -67,6 +73,7 @@
     "about": "Named for his upturned flukes, which resemble a swimming manta ray, Manta is an active participant in surface active groups.",
     "sponsored": false,
     "photoUrl": "",
-    "photoCredit": ""
+    "photoCredit": "",
+    "photoDescription": ""
   }
 ]
