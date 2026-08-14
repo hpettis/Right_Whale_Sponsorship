@@ -82,7 +82,8 @@ async function main() {
         birthYear: typeof f["Birth Year"] === "number" ? f["Birth Year"] : null,
         about: f["About"] || "",
         sponsored: !!f["Sponsored"],
-        photoUrl: photo
+        photoUrl: photo,
+        photoCredit: f["Photo Credit"] || ""
       };
     })
     .filter(w => w.name);
