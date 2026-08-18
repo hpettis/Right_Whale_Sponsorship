@@ -203,6 +203,7 @@
   <section class="block">
     <h2 class="section-title">The Whales</h2>
     <p class="section-sub">Select a sponsorship whale to see their profile and their sighting updates! Sighting updates for DATE to DATE. We thank survey teams and data contributors for their help in tracking these whales.</p>
+
     <div class="whale-switcher" id="whaleSwitcher"></div>
     <div class="all-map-link-row">
       <button class="all-map-link" type="button" id="allMapLink">
@@ -380,7 +381,7 @@ function processAppData(whalesRaw, sightingsRaw, updatesRaw) {
   if (summaryEl) {
     const sightingNoun = sightings.length === 1 ? "sighting" : "sightings";
     const whaleNoun = whaleOrder.length === 1 ? "whale" : "whales";
-    summaryEl.textContent = `${sightings.length} ${sightingNoun} across all ${whaleOrder.length} ${whaleNoun}, Miami to the Gulf of St. Lawrence.`;
+    summaryEl.textContent = `${sightings.length} ${sightingNoun} for ${whaleOrder.length} ${whaleNoun}.`;
   }
 }
 
