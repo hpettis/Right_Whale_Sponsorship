@@ -29,6 +29,6 @@ jobs:
         run: |
           git config user.name "airtable-sync-bot"
           git config user.email "actions@github.com"
-          git add data/whales.json data/sightings.json data/updates.json
+          git add -A data images/whales
           git diff --cached --quiet || git commit -m "Sync whale data from Airtable"
           git push

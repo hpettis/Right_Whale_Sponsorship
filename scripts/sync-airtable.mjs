@@ -8,9 +8,18 @@
 // Run locally with:  AIRTABLE_TOKEN=xxx AIRTABLE_BASE_ID=xxx node scripts/sync-airtable.mjs
 
 import fs from "node:fs/promises";
+import path from "node:path";
 
 const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN;
 const BASE_ID = process.env.AIRTABLE_BASE_ID;
+
+// Airtable's attachment links are temporary signed URLs that expire after a couple of hours,
+// so they can't be used directly on the live site. Instead, each whale's photo is downloaded
+// into this folder (which gets committed to the repo and served by GitHub Pages).
+const PHOTO_DIR = "images/whales";
+// Which version of the photo to download: "large" (about 512px on the longest side, small
+// files) or "full" (up to 3000px, sharper but bigger files).
+const PHOTO_SIZE = "full";
 
 // If any of your actual Airtable field names differ from what's listed here, update the
 // strings on the right-hand side of each TABLES/FIELDS entry below to match exactly
@@ -55,6 +64,32 @@ function linkedWhaleName(fields, whaleNameById) {
   return linkedId ? (whaleNameById[linkedId] || "") : "";
 }
 
+const EXT_BY_TYPE = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "image/gif": "gif" };
+
+// Downloads one Airtable attachment into PHOTO_DIR and returns its repo-relative path.
+// The file is named using the attachment's unique ID, which changes whenever a new photo is
+// uploaded in Airtable - so an unchanged photo is only downloaded once (later runs reuse it),
+// and a replaced photo gets a new filename, which also avoids stale browser caching.
+async function saveWhalePhoto(attachment, baseName, keepFiles) {
+  const safeBase = `${baseName}-${attachment.id}`.replace(/[^A-Za-z0-9_-]/g, "");
+
+  const existing = (await fs.readdir(PHOTO_DIR)).find(n => n.startsWith(safeBase + "."));
+  if (existing) {
+    keepFiles.add(existing);
+    return `${PHOTO_DIR}/${existing}`;
+  }
+
+  const sourceUrl = (attachment.thumbnails && attachment.thumbnails[PHOTO_SIZE] && attachment.thumbnails[PHOTO_SIZE].url) || attachment.url;
+  const res = await fetch(sourceUrl);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+  const type = (res.headers.get("content-type") || "").split(";")[0].trim();
+  const fileName = `${safeBase}.${EXT_BY_TYPE[type] || "jpg"}`;
+  await fs.writeFile(path.join(PHOTO_DIR, fileName), Buffer.from(await res.arrayBuffer()));
+  keepFiles.add(fileName);
+  return `${PHOTO_DIR}/${fileName}`;
+}
+
 async function main() {
   console.log("Fetching Whales...");
   const whalesRecords = await fetchAllRecords(TABLES.whales);
@@ -70,24 +105,46 @@ async function main() {
 
   const whaleNameById = buildWhaleNameLookup(whalesRecords);
 
-  // ---------- whales.json ----------
-  const whales = whalesRecords
-    .map(r => {
-      const f = r.fields;
-      const photo = Array.isArray(f["Photo"]) && f["Photo"].length ? f["Photo"][0].url : "";
-      return {
-        name: f["Whale Name"] || "",
-        eg: f["EG Number"] || "",
-        sex: f["Sex"] || "",
-        birthYear: typeof f["Birth Year"] === "number" ? f["Birth Year"] : null,
-        about: f["About"] || "",
-        sponsored: !!f["Sponsored"],
-        photoUrl: photo,
-        photoCredit: f["Photo Credit"] || "",
-        photoDescription: f["Photo Description"] || ""
-      };
-    })
-    .filter(w => w.name);
+  // ---------- whales.json (also downloads each whale's photo into images/whales/) ----------
+  await fs.mkdir(PHOTO_DIR, { recursive: true });
+  const keepFiles = new Set();
+  const whales = [];
+
+  for (const r of whalesRecords) {
+    const f = r.fields;
+    const name = f["Whale Name"] || "";
+    if (!name) continue;
+
+    let photoUrl = "";
+    const attachment = Array.isArray(f["Photo"]) ? f["Photo"][0] : null;
+    if (attachment) {
+      try {
+        photoUrl = await saveWhalePhoto(attachment, f["EG Number"] || r.id, keepFiles);
+      } catch (err) {
+        console.warn(`  Could not download photo for ${name}: ${err.message}`);
+      }
+    }
+
+    whales.push({
+      name,
+      eg: f["EG Number"] || "",
+      sex: f["Sex"] || "",
+      birthYear: typeof f["Birth Year"] === "number" ? f["Birth Year"] : null,
+      about: f["About"] || "",
+      sponsored: !!f["Sponsored"],
+      photoUrl,
+      photoCredit: f["Photo Credit"] || "",
+      photoDescription: f["Photo Description"] || ""
+    });
+  }
+
+  // Remove downloaded photos that no longer belong to any whale (e.g. a photo that was
+  // replaced or removed in Airtable), so the repo doesn't slowly fill up with old files.
+  if (whales.length > 0) {
+    for (const file of await fs.readdir(PHOTO_DIR)) {
+      if (!keepFiles.has(file)) await fs.unlink(path.join(PHOTO_DIR, file));
+    }
+  }
 
   // ---------- sightings.json ----------
   const sightings = sightingsRecords
