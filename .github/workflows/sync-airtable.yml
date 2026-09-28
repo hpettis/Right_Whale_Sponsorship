@@ -2,7 +2,7 @@ name: Sync Airtable data
 
 on:
   schedule:
-        - cron: "0 6 15 * *"
+        - cron: "0 6 15 * *" # runs at 6:00 AM UTC on the 15th of every month
   workflow_dispatch: {}    # adds a "Run workflow" button under the Actions tab for manual runs
 
 jobs:
